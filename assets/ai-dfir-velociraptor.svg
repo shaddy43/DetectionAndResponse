@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-labelledby="t d" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif">
+<title id="t">An AI agent operating Velociraptor for DFIR</title>
+<desc id="d">An AI agent connects over MCP to a Velociraptor server, which collects forensic artifacts from a fleet of Windows, Linux and macOS endpoints and returns evidence to the agent.</desc>
+
+<defs>
+  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+    <path d="M40 0H0V40" fill="none" stroke="#dfe5ec" stroke-width="1" opacity="0.45"/>
+  </pattern>
+  <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M0 0L10 5L0 10z" fill="#0d9488"/>
+  </marker>
+  <marker id="ar2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M0 0L10 5L0 10z" fill="#b45309"/>
+  </marker>
+</defs>
+
+<rect width="1200" height="630" fill="#f7f9fb"/>
+<rect width="1200" height="630" fill="url(#grid)"/>
+<rect x="0" y="0" width="1200" height="6" fill="#0d9488"/>
+
+<rect x="56" y="44" width="72" height="72" rx="18" fill="#0f1b2d"/>
+<g transform="translate(92,86)" fill="#0d9488">
+  <path d="M-16 5C-16 -7 16 -7 16 5C16 18 -16 18 -16 5Z"/>
+  <path d="M0 4C-9 -12 -8 -32 0 -46C8 -32 9 -12 0 4Z"/>
+  <path d="M0 4C-9 -12 -8 -32 0 -46C8 -32 9 -12 0 4Z" transform="rotate(-44)"/>
+  <path d="M0 4C-9 -12 -8 -32 0 -46C8 -32 9 -12 0 4Z" transform="rotate(44)"/>
+</g>
+
+<text x="148" y="66" font-size="12.5" font-weight="700" letter-spacing="2.6" fill="#0d9488">AI-DRIVEN DFIR &#183; MCP &#183; VELOCIRAPTOR</text>
+<text x="148" y="98" font-size="33" font-weight="700" letter-spacing="-0.6" fill="#0f1b2d">An AI agent in the analyst&#8217;s chair</text>
+<text x="148" y="122" font-size="15" fill="#64748b">Autonomous triage, hunting and endpoint forensics &#8212; from alert to answer.</text>
+
+<rect x="56" y="196" width="268" height="196" rx="14" fill="#ffffff" stroke="#dfe5ec"/>
+<rect x="80" y="216" width="34" height="34" rx="10" fill="#e6f4f2"/>
+<text x="97" y="239" font-size="14" font-weight="700" fill="#0d9488" text-anchor="middle">AI</text>
+<text x="126" y="230" font-size="17" font-weight="700" fill="#0f1b2d">AI agent</text>
+<text x="126" y="247" font-size="12.5" fill="#64748b">reasons, plans, pivots</text>
+<line x1="80" y1="268" x2="300" y2="268" stroke="#dfe5ec"/>
+<g font-size="13" fill="#33404f">
+  <circle cx="84" cy="288" r="3" fill="#0d9488"/><text x="98" y="292">reads the alert, forms a hypothesis</text>
+  <circle cx="84" cy="314" r="3" fill="#0d9488"/><text x="98" y="318">picks the next forensic artifact</text>
+  <circle cx="84" cy="340" r="3" fill="#0d9488"/><text x="98" y="344">writes VQL and YARA on the fly</text>
+  <circle cx="84" cy="366" r="3" fill="#0d9488"/><text x="98" y="370">explains the verdict in plain English</text>
+</g>
+
+<line x1="326" y1="294" x2="424" y2="294" stroke="#0d9488" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#ar)"/>
+<rect x="341" y="246" width="68" height="28" rx="14" fill="#0f1b2d"/>
+<text x="375" y="265" font-size="12.5" font-weight="700" letter-spacing="1.2" fill="#ffffff" text-anchor="middle">MCP</text>
+<text x="375" y="322" font-size="11.5" fill="#64748b" text-anchor="middle">tool calls</text>
+
+<rect x="430" y="196" width="268" height="196" rx="14" fill="#ffffff" stroke="#dfe5ec"/>
+<rect x="454" y="216" width="34" height="34" rx="10" fill="#e6f4f2"/>
+<g transform="translate(471,233) scale(0.34)" fill="#0d9488">
+  <path d="M-16 5C-16 -7 16 -7 16 5C16 18 -16 18 -16 5Z"/>
+  <path d="M0 4C-9 -12 -8 -32 0 -46C8 -32 9 -12 0 4Z"/>
+  <path d="M0 4C-9 -12 -8 -32 0 -46C8 -32 9 -12 0 4Z" transform="rotate(-44)"/>
+  <path d="M0 4C-9 -12 -8 -32 0 -46C8 -32 9 -12 0 4Z" transform="rotate(44)"/>
+</g>
+<text x="500" y="230" font-size="17" font-weight="700" fill="#0f1b2d">Velociraptor</text>
+<text x="500" y="247" font-size="12.5" fill="#64748b">server &#183; VQL engine</text>
+<line x1="454" y1="268" x2="674" y2="268" stroke="#dfe5ec"/>
+<g font-size="13" fill="#33404f">
+  <circle cx="458" cy="288" r="3" fill="#0d9488"/><text x="472" y="292">artifact collection on demand</text>
+  <circle cx="458" cy="314" r="3" fill="#0d9488"/><text x="472" y="318">fleet-wide hunts</text>
+  <circle cx="458" cy="340" r="3" fill="#0d9488"/><text x="472" y="344">YARA scan of files and memory</text>
+  <circle cx="458" cy="366" r="3" fill="#0d9488"/><text x="472" y="370">quarantine and response</text>
+</g>
+
+<path d="M700 294H744" stroke="#0d9488" stroke-width="2" fill="none"/>
+<path d="M744 294V236Q744 226 754 226H784" stroke="#0d9488" stroke-width="2" fill="none" marker-end="url(#ar)"/>
+<path d="M744 294H784" stroke="#0d9488" stroke-width="2" fill="none" marker-end="url(#ar)"/>
+<path d="M744 294V352Q744 362 754 362H784" stroke="#0d9488" stroke-width="2" fill="none" marker-end="url(#ar)"/>
+
+<text x="792" y="184" font-size="11.5" font-weight="700" letter-spacing="1.6" fill="#64748b">THE FLEET</text>
+
+<rect x="792" y="199" width="352" height="54" rx="12" fill="#ffffff" stroke="#dfe5ec"/>
+<rect x="812" y="217" width="18" height="18" rx="5" fill="#0f1b2d"/>
+<text x="846" y="223" font-size="14" font-weight="700" fill="#0f1b2d">WKSTN-07</text>
+<text x="846" y="240" font-size="12" fill="#64748b">Windows 11 &#183; endpoint</text>
+<rect x="1046" y="216" width="80" height="22" rx="11" fill="#eef2f7"/>
+<text x="1086" y="231" font-size="11.5" fill="#0f766e" text-anchor="middle">triaged</text>
+
+<rect x="792" y="267" width="352" height="54" rx="12" fill="#ffffff" stroke="#dfe5ec"/>
+<rect x="812" y="285" width="18" height="18" rx="5" fill="#0f1b2d"/>
+<text x="846" y="291" font-size="14" font-weight="700" fill="#0f1b2d">SRV-DB01</text>
+<text x="846" y="308" font-size="12" fill="#64748b">Linux &#183; server</text>
+<rect x="1046" y="284" width="80" height="22" rx="11" fill="#eef2f7"/>
+<text x="1086" y="299" font-size="11.5" fill="#0f766e" text-anchor="middle">hunted</text>
+
+<rect x="792" y="335" width="352" height="54" rx="12" fill="#ffffff" stroke="#dfe5ec"/>
+<rect x="812" y="353" width="18" height="18" rx="5" fill="#0f1b2d"/>
+<text x="846" y="359" font-size="14" font-weight="700" fill="#0f1b2d">MBP-9</text>
+<text x="846" y="376" font-size="12" fill="#64748b">macOS &#183; laptop</text>
+<rect x="1046" y="352" width="80" height="22" rx="11" fill="#b45309"/>
+<text x="1086" y="367" font-size="11.5" font-weight="700" fill="#ffffff" text-anchor="middle">contained</text>
+
+<path d="M968 391V434Q968 444 958 444H200Q190 444 190 434V396" stroke="#b45309" stroke-width="2" fill="none" stroke-dasharray="6 5" marker-end="url(#ar2)"/>
+<rect x="452" y="430" width="256" height="28" rx="14" fill="#fffaf2" stroke="#f2e2c9"/>
+<text x="580" y="449" font-size="12.5" font-weight="700" fill="#b45309" text-anchor="middle">evidence &#183; timeline &#183; verdict</text>
+
+<text x="56" y="500" font-size="11.5" font-weight="700" letter-spacing="1.6" fill="#64748b">ARTIFACTS PULLED</text>
+
+<g font-size="12.5" fill="#0f766e">
+  <rect x="56" y="514" width="82" height="30" rx="8" fill="#eef2f7" stroke="#dfe5ec"/><text x="97" y="534" text-anchor="middle">prefetch</text>
+  <rect x="148" y="514" width="54" height="30" rx="8" fill="#eef2f7" stroke="#dfe5ec"/><text x="175" y="534" text-anchor="middle">$MFT</text>
+  <rect x="212" y="514" width="75" height="30" rx="8" fill="#eef2f7" stroke="#dfe5ec"/><text x="249" y="534" text-anchor="middle">amcache</text>
+  <rect x="297" y="514" width="89" height="30" rx="8" fill="#eef2f7" stroke="#dfe5ec"/><text x="341" y="534" text-anchor="middle">shimcache</text>
+  <rect x="396" y="514" width="54" height="30" rx="8" fill="#eef2f7" stroke="#dfe5ec"/><text x="423" y="534" text-anchor="middle">srum</text>
+  <rect x="460" y="514" width="96" height="30" rx="8" fill="#eef2f7" stroke="#dfe5ec"/><text x="508" y="534" text-anchor="middle">event logs</text>
+  <rect x="566" y="514" width="82" height="30" rx="8" fill="#eef2f7" stroke="#dfe5ec"/><text x="607" y="534" text-anchor="middle">autoruns</text>
+  <rect x="658" y="514" width="89" height="30" rx="8" fill="#eef2f7" stroke="#dfe5ec"/><text x="702" y="534" text-anchor="middle">yara scan</text>
+  <rect x="757" y="514" width="103" height="30" rx="8" fill="#eef2f7" stroke="#dfe5ec"/><text x="808" y="534" text-anchor="middle">usn journal</text>
+  <rect x="870" y="514" width="75" height="30" rx="8" fill="#eef2f7" stroke="#dfe5ec"/><text x="907" y="534" text-anchor="middle">netstat</text>
+  <rect x="955" y="514" width="131" height="30" rx="8" fill="#eef2f7" stroke="#dfe5ec"/><text x="1020" y="534" text-anchor="middle">scheduled tasks</text>
+</g>
+
+<line x1="56" y1="570" x2="1144" y2="570" stroke="#dfe5ec"/>
+<text x="56" y="596" font-size="12.5" fill="#64748b">Detection &amp; Response</text>
+<text x="1144" y="596" font-size="12.5" fill="#64748b" text-anchor="end">shaddy43</text>
+</svg>
