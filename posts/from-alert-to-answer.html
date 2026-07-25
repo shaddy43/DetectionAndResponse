@@ -5,31 +5,103 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>From Alert to Answer: AI-Driven DFIR with Claude Code &amp; Velociraptor</title>
   <meta name="description" content="A Defender alert for a browser stealer becomes a full endpoint investigation, run end to end by an AI analyst wired to Velociraptor over MCP." />
-  <link rel="stylesheet" href="../assets/style.css" />
+  <meta name="author" content="Shayan Ahmed Khan" />
+  <link rel="canonical" href="https://shaddy43.github.io/DetectionAndResponse/posts/from-alert-to-answer.html" />
+
+  <!-- Social preview -->
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Detection &amp; Response" />
+  <meta property="og:title" content="From Alert to Answer: AI-Driven DFIR with Claude Code &amp; Velociraptor" />
+  <meta property="og:description" content="A Defender alert for a browser stealer becomes a full endpoint investigation, run end to end by an AI analyst wired to Velociraptor over MCP." />
+  <meta property="og:url" content="https://shaddy43.github.io/DetectionAndResponse/posts/from-alert-to-answer.html" />
+  <meta property="og:image" content="https://shaddy43.github.io/DetectionAndResponse/assets/img/site/og-cover.png" />
+  <meta property="og:image:alt" content="The detection and response lifecycle: Sigma, YARA, hunts and forensics feeding an AI correlation core, then alert, analyse, contain, eradicate, recover." />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="article:published_time" content="2026-07-23" />
+  <meta property="article:author" content="Shayan Ahmed Khan" />
+  <meta property="article:tag" content="DFIR" />
+  <meta property="article:tag" content="Velociraptor" />
+  <meta property="article:tag" content="Threat Hunting" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="From Alert to Answer: AI-Driven DFIR with Claude Code &amp; Velociraptor" />
+  <meta name="twitter:description" content="A Defender alert for a browser stealer becomes a full endpoint investigation, run end to end by an AI analyst wired to Velociraptor over MCP." />
+  <meta name="twitter:image" content="https://shaddy43.github.io/DetectionAndResponse/assets/img/site/og-cover.png" />
+
+  <meta name="theme-color" content="#f7f9fb" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0e131a" media="(prefers-color-scheme: dark)" />
+
+  <link rel="preload" href="../assets/fonts/jetbrains-mono-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="../assets/css/style.css" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%9B%A1%EF%B8%8F%3C/text%3E%3C/svg%3E" />
+
+  <!-- Applies a saved theme choice before first paint, so there's no flash. -->
+  <script>
+    try {
+      var t = localStorage.getItem('dr-theme');
+      if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
+    } catch (e) {}
+  </script>
+  <script src="../assets/js/site.js" defer></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "From Alert to Answer: AI-Driven DFIR with Claude Code & Velociraptor",
+    "description": "A Defender alert for a browser stealer becomes a full endpoint investigation, run end to end by an AI analyst wired to Velociraptor over MCP.",
+    "image": "https://shaddy43.github.io/DetectionAndResponse/assets/img/site/og-cover.png",
+    "datePublished": "2026-07-23",
+    "inLanguage": "en",
+    "keywords": "DFIR, Velociraptor, Claude Code, MCP, Threat Hunting, YARA, Windows Forensics",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://shaddy43.github.io/DetectionAndResponse/posts/from-alert-to-answer.html"
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Shayan Ahmed Khan",
+      "alternateName": "shaddy43",
+      "url": "https://shaddy43.github.io"
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Shayan Ahmed Khan",
+      "url": "https://shaddy43.github.io"
+    }
+  }
+  </script>
 </head>
 <body>
   <header class="site-header">
     <div class="wrap">
       <a class="brand" href="../index.html" style="text-decoration:none">Detection <span class="dot">&amp;</span> Response</a>
-      <nav class="nav">
-        <a href="../index.html">Posts</a>
-        <a href="https://shaddy43.github.io" target="_blank" rel="noopener">Portfolio</a>
-        <a href="https://shaddy43.github.io/MalwareAnalysisSeries/" target="_blank" rel="noopener">Malware Analysis Series</a>
-        <a href="https://github.com/shaddy43" target="_blank" rel="noopener">GitHub</a>
-      </nav>
+      <div class="header-right">
+        <nav class="nav" aria-label="Main">
+          <a href="../index.html#posts">Posts</a>
+          <a href="https://github.com/shaddy43/DetectionAndResponse/tree/main/detections" target="_blank" rel="noopener">Detections</a>
+          <a href="https://shaddy43.github.io" target="_blank" rel="noopener">Portfolio</a>
+          <a href="https://shaddy43.github.io/MalwareAnalysisSeries/" target="_blank" rel="noopener">Malware Analysis Series</a>
+          <a href="https://github.com/shaddy43" target="_blank" rel="noopener">GitHub</a>
+        </nav>
+        <button class="theme-toggle" type="button" aria-label="Switch to dark theme">
+          <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        </button>
+      </div>
     </div>
   </header>
 
   <article class="article">
     <div class="wrap">
       <figure class="hero-figure">
-        <img src="../assets/hero-claude-velociraptor.jpg"
+        <img src="../assets/img/posts/from-alert-to-answer/hero.webp"
              alt="Claude Code × Velociraptor — AI-driven DFIR"
-             width="1200" height="800" fetchpriority="high" decoding="async" />
+             width="1200" height="800" fetchpriority="high" />
       </figure>
       <div class="post-head">
-        <div class="pmeta">Detection &amp; Response · Post 01 &nbsp;·&nbsp; 23 Jul 2026 &nbsp;·&nbsp; by shaddy43</div>
+        <div class="pmeta">Detection &amp; Response · Post 01 &nbsp;·&nbsp; <time datetime="2026-07-23">23 Jul 2026</time> &nbsp;·&nbsp; by shaddy43</div>
         <h1>From Alert to Answer: AI-Driven DFIR with Claude Code &amp; Velociraptor</h1>
         <p class="lede">How an AI coding agent became a digital-forensics operator, writing detection logic, running fleet-wide hunts, and triaging a live malware hit end to end.</p>
         <div class="tags">
@@ -102,8 +174,8 @@ windows_execution_amcache, windows_scheduled_tasks, windows_event_logs, ...</cod
       </p>
 
       <figure class="fig">
-        <img src="../assets/ai-dfir-velociraptor.png"
-             srcset="../assets/ai-dfir-velociraptor.png 1200w, ../assets/ai-dfir-velociraptor@2x.png 2400w"
+        <img src="../assets/img/posts/from-alert-to-answer/architecture.webp"
+             srcset="../assets/img/posts/from-alert-to-answer/architecture.webp 1200w, ../assets/img/posts/from-alert-to-answer/architecture@2x.webp 2400w"
              sizes="(max-width: 820px) 100vw, 820px"
              alt="Architecture diagram: Claude Code calls Velociraptor operations through an MCP server"
              width="1200" height="630" loading="lazy" decoding="async" />
@@ -138,6 +210,11 @@ sources:
         Message                        AS Message
       FROM parse_evtx(filename=EvtxPath)
       WHERE System.EventID.Value IN (1006, 1015, 1116, 1117, 1118, 1119)</code></pre>
+      <div class="detection-links">
+        <span class="dl-label">Get this artifact</span>
+        <a href="https://github.com/shaddy43/DetectionAndResponse/blob/main/detections/velociraptor/Custom.Windows.EventLogs.DefenderThreats.yaml" target="_blank" rel="noopener">Custom.Windows.EventLogs.DefenderThreats.yaml <span class="ext">↗</span></a>
+        <a href="https://raw.githubusercontent.com/shaddy43/DetectionAndResponse/main/detections/velociraptor/Custom.Windows.EventLogs.DefenderThreats.yaml" target="_blank" rel="noopener">raw <span class="ext">↗</span></a>
+      </div>
       <p>
         This is worth pausing on: the AI <strong>authored working detection logic</strong>, iterating
         through VQL parser errors (string-subscript syntax, field extraction) until the artifact
@@ -153,7 +230,7 @@ sources:
       </blockquote>
 
       <figure class="fig">
-        <img src="../assets/defender_artifact_results.png"
+        <img src="../assets/img/posts/from-alert-to-answer/defender-artifact-results.webp"
              alt="Velociraptor hunt results for the custom Defender-threats artifact"
              width="1151" height="679" loading="lazy" decoding="async" />
         <figcaption>Hunt output from the custom <code>Custom.Windows.EventLogs.DefenderThreats</code> artifact, the single Severe detection surfaced across the fleet.</figcaption>
@@ -219,7 +296,7 @@ sources:
       </p>
 
       <figure class="fig">
-        <img src="../assets/wiki_iocs.png"
+        <img src="../assets/img/posts/from-alert-to-answer/wiki-iocs.webp"
              alt="BrowserSnatch detection wiki - Indicators of Compromise page"
              width="1152" height="700" loading="lazy" decoding="async" />
         <figcaption>The BrowserSnatch detection wiki's IOC list; the threat intel the agent pulled and operationalized into live host collectors.</figcaption>
@@ -341,7 +418,7 @@ sources:
       <p>The model is fast and tireless, but the destructive verbs remain gated behind human intent.</p>
 
       <figure class="fig">
-        <img src="../assets/velociraptor_gui.png"
+        <img src="../assets/img/posts/from-alert-to-answer/velociraptor-gui.webp"
              alt="Velociraptor GUI showing collections created by the AI agent, tracked under its creator name"
              width="1870" height="507" loading="lazy" decoding="async" />
         <figcaption>Nothing happens off the record: every collection the agent launched is logged in the Velociraptor GUI under its own creator identity and the entire session is attributable and auditable after the fact.</figcaption>
@@ -412,6 +489,12 @@ sources:
             ((1 of ($g*)) and (2 of ($b*)) and (1 of ($h*)))
         )
 }</code></pre>
+      <div class="detection-links">
+        <span class="dl-label">Get this rule</span>
+        <a href="https://github.com/shaddy43/DetectionAndResponse/blob/main/detections/yara/browsersnatch.yar" target="_blank" rel="noopener">browsersnatch.yar <span class="ext">↗</span></a>
+        <a href="https://raw.githubusercontent.com/shaddy43/DetectionAndResponse/main/detections/yara/browsersnatch.yar" target="_blank" rel="noopener">raw <span class="ext">↗</span></a>
+        <a href="https://github.com/shaddy43/DetectionAndResponse/tree/main/detections" target="_blank" rel="noopener">all detections <span class="ext">↗</span></a>
+      </div>
 
       <hr />
 

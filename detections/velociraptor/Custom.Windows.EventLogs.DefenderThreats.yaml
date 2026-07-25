@@ -1,0 +1,34 @@
+name: Custom.Windows.EventLogs.DefenderThreats
+description: |
+  Microsoft Defender Operational log - returns ONLY events where a threat was
+  detected or acted upon (Event IDs 1006, 1015, 1116, 1117, 1118, 1119).
+
+  Written during the investigation documented in "From Alert to Answer:
+  AI-Driven DFIR with Claude Code & Velociraptor". Velociraptor hunts run
+  artifacts, not raw VQL, so a fleet-wide Defender sweep needs an artifact
+  like this one.
+
+  Event IDs:
+    1006 - Malware or other potentially unwanted software detected
+    1015 - Suspicious behavior detected
+    1116 - Malware detected (real-time protection)
+    1117 - Action taken on malware
+    1118 - Action on malware failed
+    1119 - Critical error during action on malware
+author: shaddy43
+reference:
+  - https://shaddy43.github.io/DetectionAndResponse/posts/from-alert-to-answer.html
+type: CLIENT
+parameters:
+  - name: EvtxPath
+    default: C:\Windows\System32\winevt\Logs\Microsoft-Windows-Windows Defender%4Operational.evtx
+sources:
+  - query: |
+      SELECT
+        System.Computer                AS Computer,
+        System.TimeCreated.SystemTime  AS EventTime,
+        System.EventID.Value           AS EventID,
+        EventData                      AS EventData,
+        Message                        AS Message
+      FROM parse_evtx(filename=EvtxPath)
+      WHERE System.EventID.Value IN (1006, 1015, 1116, 1117, 1118, 1119)
