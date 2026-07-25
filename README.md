@@ -47,8 +47,15 @@ into a flat pile as posts accumulate.
 2. Update the `<head>`: `title`, `description`, `canonical`, the `og:`/`twitter:` tags, and the
    `BlogPosting` JSON-LD block (headline, description, `datePublished`, `mainEntityOfPage`).
    These are per-post — copying them over unchanged is the easy mistake.
-3. Drop images in `assets/img/posts/<slug>/`. Always set `width`/`height` on `<img>` so the page
-   doesn't jump while loading, and `loading="lazy"` on everything below the hero.
+3. Drop images in `assets/img/posts/<slug>/` as **WebP**. Always set `width`/`height` on `<img>`
+   so the page doesn't jump while loading, and `loading="lazy"` on everything below the hero.
+   Leave `decoding` unset on the hero — `decoding="async"` lets the browser paint the page before
+   the image decodes, which is the opposite of what you want for the largest element on screen.
+
+   For encoding, the format matters less than the mode. Screenshots, diagrams and other flat-colour
+   images compress better **lossless** than lossy and stay pixel-perfect; photographs need lossy
+   (quality 85 is a good default). Check both before committing — on this site lossless beat
+   lossy by 2-3× on every screenshot.
 4. If the post publishes a rule or artifact, add the file under `detections/` (see
    [`detections/README.md`](detections/README.md)), list it in that index table, and link it from
    the post with a `.detection-links` block.
