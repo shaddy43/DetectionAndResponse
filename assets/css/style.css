@@ -161,19 +161,27 @@ code, pre, .mono {
 .hero h1 { font-size: 2.55rem; line-height: 1.12; margin: 0 0 16px; color: var(--heading); letter-spacing: -0.02em; text-wrap: balance; }
 .hero p { font-size: 1.15rem; color: var(--text-dim); max-width: 640px; margin: 0; }
 
-/* Cover artwork under the hero copy. The art has its own near-white background,
-   so it sits on a permanently light plate — in dark mode that reads as a
-   deliberate light surface rather than a glaring white square. */
-.cover-figure { margin: 38px auto 0; max-width: 700px; }
+/* ---------- Purpose band ---------- */
+/* Two columns so the cover artwork illustrates the copy instead of stacking
+   below it — it costs no extra vertical space that way. The art carries its
+   own near-white background, so it sits on a permanently light plate and
+   reads as a deliberate light surface in dark mode. */
+.purpose {
+  display: grid; grid-template-columns: 1fr 320px; gap: 34px; align-items: center;
+  margin: 46px 0 6px;
+}
+.purpose-text p:not(.section-title) { margin: 0 0 14px; color: var(--text-dim); font-size: 0.98rem; }
+.purpose-text p:last-child { margin-bottom: 0; }
+.purpose .section-title { margin-top: 0; }
+.cover-figure { margin: 0; }
 .cover-figure img {
   display: block; width: 100%; height: auto; background: #fdfdfe;
   border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow);
 }
-.cover-figure figcaption {
-  margin-top: 12px; font-size: 0.85rem; color: var(--text-dim);
-  text-align: center; font-style: italic; line-height: 1.5;
+@media (max-width: 720px) {
+  .purpose { grid-template-columns: 1fr; gap: 24px; }
+  .cover-figure { max-width: 380px; margin: 0 auto; }
 }
-@media (max-width: 640px) { .cover-figure { margin-top: 28px; } }
 
 /* ---------- Whoami ---------- */
 .whoami { margin: 46px 0 6px; }

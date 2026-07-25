@@ -87,21 +87,39 @@
       <span class="eyebrow">Blue Team · DFIR · Detection Engineering</span>
       <h1>Detection &amp; Response</h1>
       <p>
-        The defender's half of the story. Where offense meets the endpoint, this is how you hunt it
-        down, reconstruct what happened from the traces it leaves behind, and turn raw telemetry into
-        answers. Hands-on incident response, detection engineering, and the automation that ties it
-        all together, written up the way I wish every case study was.
+        Welcome to <strong>Detection &amp; Response</strong>, a field journal for hands-on defence:
+        endpoint forensics, detection engineering, threat hunting, and the AI-assisted workflows that
+        tie them together. Every post works a real case from first alert to defensible conclusion,
+        with the artifacts, queries and rules shown in full.
       </p>
-      <figure class="cover-figure">
-        <img src="assets/img/site/cover.webp"
-             alt="The detection and response lifecycle: Sigma, YARA, hunts and forensics feeding an AI correlation core, surrounded by the threats it looks for, then the response chain — alert, analyse, contain, eradicate, recover."
-             width="1254" height="1254" fetchpriority="high" />
-        <figcaption>The ground this series covers: what we hunt for, what we hunt with, and what happens once we find it.</figcaption>
-      </figure>
     </div>
   </section>
 
   <main class="wrap">
+
+    <section class="purpose">
+      <div class="purpose-text">
+        <p class="section-title">Purpose</p>
+        <p>
+          Detection &amp; Response is the defensive counterpart to the
+          <a href="https://shaddy43.github.io/MalwareAnalysisSeries/" target="_blank" rel="noopener">Malware Analysis Series</a>.
+          Where that project takes threats apart to understand how they are built, this one puts that
+          understanding to work, turning what we learn from malware into detections that fire, hunts
+          that scale, and investigations that hold up.
+        </p>
+        <p>
+          The aim is practical knowledge the community can run, not just read. Every rule, artifact
+          and query published here ships as a
+          <a href="https://github.com/shaddy43/DetectionAndResponse/tree/main/detections" target="_blank" rel="noopener">runnable file</a>,
+          so intel becomes a live hunt in the time it takes to copy a path.
+        </p>
+      </div>
+      <figure class="cover-figure">
+        <img src="assets/img/site/cover.webp"
+             alt="The detection and response lifecycle: Sigma, YARA, hunts and forensics feeding an AI correlation core, surrounded by the threats it looks for, then the response chain — alert, analyse, contain, eradicate, recover."
+             width="1254" height="1254" loading="lazy" />
+      </figure>
+    </section>
 
     <section class="whoami">
       <div class="card">
@@ -113,12 +131,14 @@
           <img class="avatar" src="assets/img/site/avatar.webp" alt="Animated avatar of shaddy43" width="82" height="82" decoding="async" />
           <div class="who-main">
             <h2 class="name">Shayan Ahmed Khan <span class="handle">· @shaddy43</span></h2>
-            <p class="role">Threat Research · Detection &amp; Response · Offensive Tooling</p>
-            <p class="tagline">// turning alerts into answers</p>
+            <p class="role">Threat Researcher · Detection &amp; Response · Offensive Tooling</p>
+            <p class="tagline"># turning coffee into commits</p>
             <p class="bio">
-              I build offensive tooling, then turn around and hunt it. This series is the blue-team
-              side of that loop: endpoint forensics, detection-as-code, and AI-assisted investigation,
-              taken from first alert to a defensible conclusion, with every artifact shown.
+              My journey has taken me from malware development and reverse engineering to SOC
+              operations, enterprise DFIR and OT threat hunting. I enjoy understanding threats from
+              both sides, how they are built, how they operate, and how to detect and defend against
+              them. This series is the defensive half of that loop, worked from first alert to a
+              defensible conclusion with every artifact shown.
             </p>
             <div class="socials">
               <a class="social" href="https://shaddy43.github.io" target="_blank" rel="noopener">Portfolio <span class="ext">↗</span></a>
