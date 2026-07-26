@@ -101,11 +101,13 @@
       <div class="purpose-text">
         <p class="section-title">Purpose</p>
         <p>
-          Detection &amp; Response is the defensive counterpart to the
-          <a href="https://shaddy43.github.io/MalwareAnalysisSeries/" target="_blank" rel="noopener">Malware Analysis Series</a>.
-          Where that project takes threats apart to understand how they are built, this one puts that
-          understanding to work, turning what we learn from malware into detections that fire, hunts
-          that scale, and investigations that hold up.
+          Detection &amp; Response project complements
+          <a href="https://shaddy43.github.io/MalwareAnalysisSeries/" target="_blank" rel="noopener">Malware Analysis Series</a>
+          which works at the level of the malware itself, the families, the TTPs and their
+          detections. This project works at the level of the defence: scenarios or documented cases,
+          detection engineering and the rules it produces, the tooling and methodologies that carry
+          an investigation, and the AI integrations increasingly doing the heavy lifting. Two tracks,
+          read either on its own.
         </p>
         <p>
           The aim is practical knowledge the community can run, not just read. Every rule, artifact
@@ -153,7 +155,16 @@
 
     <p class="section-title" id="posts">Latest Posts</p>
 
-    <a class="post-card" href="posts/from-alert-to-answer.html">
+    <div class="filter-bar">
+      <label class="visually-hidden" for="postSearch">Search posts</label>
+      <input type="search" id="postSearch" class="filter-search" placeholder="Search posts…"
+             autocomplete="off" />
+      <div class="filter-tags" id="filterTags" role="group" aria-label="Filter posts by tag"></div>
+    </div>
+    <p class="no-results" id="noResults" hidden>No posts match that filter.</p>
+
+    <a class="post-card" href="posts/from-alert-to-answer.html"
+       data-tags="dfir|velociraptor|claude code|mcp|threat hunting|yara|windows forensics">
       <div class="pmeta"><time datetime="2026-07-23">23 Jul 2026</time> · DFIR · ~12 min read</div>
       <h3>From Alert to Answer: AI-Driven DFIR with Claude Code &amp; Velociraptor</h3>
       <p>
@@ -172,10 +183,46 @@
       </div>
     </a>
 
-    <div class="post-card disabled">
+    <div class="post-card disabled" data-placeholder>
       <div class="pmeta">Coming soon</div>
       <h3>More field notes on the way…</h3>
       <p>Detection-as-code, hunt playbooks, and endpoint IR case studies.</p>
+    </div>
+
+    <p class="section-title">Certifications</p>
+    <div class="cert-row">
+      <a class="cert-badge" href="https://www.credly.com/badges/45a3ba35-3e34-4f94-bf47-bfde08b48de0/public_url" target="_blank" rel="noopener">
+        <span class="cert-key" style="background:#c8102e">GREM</span><span class="cert-val">GIAC / SANS</span>
+      </a>
+      <a class="cert-badge" href="https://www.credential.net/ff7a6f07-4c09-4d96-ab14-261b0d3f473a#gs.9t6ecb" target="_blank" rel="noopener">
+        <span class="cert-key" style="background:#6b3fa0">PMRP</span><span class="cert-val">TCM Security</span>
+      </a>
+      <a class="cert-badge" href="https://learn.microsoft.com/en-gb/users/shayanahmedkhan-2672/credentials/92d6bb32e0ae540e" target="_blank" rel="noopener">
+        <span class="cert-key" style="background:#0067b8">SC-200</span><span class="cert-val">Microsoft</span>
+      </a>
+      <a class="cert-badge" href="https://learn.microsoft.com/en-gb/users/shayanahmedkhan-2672/credentials/c4fac587e902016b" target="_blank" rel="noopener">
+        <span class="cert-key" style="background:#0067b8">AZ-500</span><span class="cert-val">Microsoft</span>
+      </a>
+      <a class="cert-badge" href="https://www.velociraptor-docs.org/training/" target="_blank" rel="noopener">
+        <span class="cert-key" style="background:#1f9d55">Velociraptor</span><span class="cert-val">Rapid7</span>
+      </a>
+      <span class="cert-badge">
+        <span class="cert-key" style="background:#c7000b">HCIA Security</span><span class="cert-val">Huawei</span>
+      </span>
+      <a class="cert-badge" href="https://www.credly.com/badges/5d4d391b-52ac-422d-a5d4-be2b1e304f09" target="_blank" rel="noopener">
+        <span class="cert-key" style="background:#f7941e">CSFPC</span><span class="cert-val">CertiProf</span>
+      </a>
+      <a class="cert-badge" href="https://app.kajabi.com/certificates/7f65a8b9" target="_blank" rel="noopener">
+        <span class="cert-key" style="background:#2d2d2d">C3SA</span><span class="cert-val">CWL</span>
+      </a>
+    </div>
+
+    <p class="section-title">Buy Me A Coffee</p>
+    <div class="badge-row">
+      <a class="social-badge b-coffee" href="https://paypal.me/shaddy43" target="_blank" rel="noopener">
+        <span class="badge-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.5 3H6a3 3 0 00-3 3v6a5 5 0 005 5h4a5 5 0 004.9-4H19a3.5 3.5 0 000-7h-.5zm0 5H17V5h1.5a1.5 1.5 0 010 3zM4 20h16v2H4z"/></svg>PayPal</span>
+        <span class="badge-text">Buy me a coffee</span>
+      </a>
     </div>
   </main>
 

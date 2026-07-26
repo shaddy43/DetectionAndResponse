@@ -59,7 +59,11 @@ into a flat pile as posts accumulate.
 4. If the post publishes a rule or artifact, add the file under `detections/` (see
    [`detections/README.md`](detections/README.md)), list it in that index table, and link it from
    the post with a `.detection-links` block.
-5. Add a `.post-card` to `index.html` under *Latest Posts*, and update the table above.
+5. Add a `.post-card` to `index.html` under *Latest Posts*, and update the table above. Give the
+   card a `data-tags` attribute — lowercase, pipe-separated, e.g.
+   `data-tags="dfir|sigma|threat hunting"`. The filter bar builds its tag chips from those
+   attributes at load time, so a new tag appears on the index by itself; there is no separate list
+   to maintain. Search matches the card's visible text and its tags.
 
 Code blocks get a copy button automatically — any `<pre>` inside `.article` is wired up by
 `site.js` at load time. No markup needed.
