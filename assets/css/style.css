@@ -231,6 +231,8 @@ code, pre, .mono {
 .social .ext { opacity: .55; font-size: 0.82em; }
 @media (max-width: 640px) {
   .whoami .body { flex-direction: column; align-items: flex-start; gap: 16px; }
+  /* Centre the avatar over the left-aligned bio when the card stacks. */
+  .whoami .avatar { align-self: center; }
 }
 
 /* ---------- Post list ---------- */
@@ -350,6 +352,10 @@ code, pre, .mono {
 .article th, .article td { text-align: left; padding: 9px 13px; border: 1px solid var(--border); }
 .article th { background: var(--bg-thead); color: var(--heading); font-weight: 600; white-space: nowrap; }
 .article td { font-variant-numeric: tabular-nums; }
+/* JetBrains Mono has a tall x-height, so inline code in the compact table
+   cells reads larger than the plain field labels even at the article's 0.86em.
+   Nudge it down so a value never looks bigger than its field. */
+.article th code, .article td code { font-size: 0.8em; }
 .article tbody tr:nth-child(even), .article tr:nth-child(even) { background: var(--stripe); }
 
 .back-link { display: inline-block; margin: 8px 0 0; color: var(--text-dim); font-size: 0.9rem; }
