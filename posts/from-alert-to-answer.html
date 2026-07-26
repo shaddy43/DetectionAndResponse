@@ -240,13 +240,6 @@ sources:
         </p>
       </blockquote>
 
-      <figure class="fig">
-        <img src="../assets/img/posts/from-alert-to-answer/defender-artifact-results.webp"
-             alt="Velociraptor hunt results for the custom Defender-threats artifact"
-             width="1151" height="679" loading="lazy" decoding="async" />
-        <figcaption>Hunt output from the custom <code>Custom.Windows.EventLogs.DefenderThreats</code> artifact, the single Severe detection surfaced across the fleet.</figcaption>
-      </figure>
-
       <h3>Step 2: Hunt the fleet, read the results</h3>
       <p>With the artifact registered, launching a hunt was a single tool call:</p>
       <pre><code>hunt_across_fleet(
@@ -280,6 +273,13 @@ sources:
         forensic proof that a rogue <code>msedge.exe</code> existed at that location, right up until
         Defender removed it.
       </p>
+
+      <figure class="fig">
+        <img src="../assets/img/posts/from-alert-to-answer/defender-artifact-results.webp"
+             alt="Velociraptor hunt results for the custom Defender-threats artifact"
+             width="1151" height="679" loading="lazy" decoding="async" />
+        <figcaption>Hunt output from the custom <code>Custom.Windows.EventLogs.DefenderThreats</code> artifact, the single Severe detection surfaced across the fleet.</figcaption>
+      </figure>
 
       <h3>Step 3: Bring the detection rules to the endpoint</h3>
       <p>
