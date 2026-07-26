@@ -44,6 +44,17 @@
     } catch (e) {}
   </script>
   <script src="../assets/js/site.js" defer></script>
+  <!-- GoatCounter web analytics (privacy-friendly, cookieless). -->
+  <!-- count.js counts page views automatically; the click handler in site.js -->
+  <!-- records clicks on outbound links (to other hosts) as GoatCounter events. -->
+  <!-- Internal links are intentionally NOT tracked as events, because -->
+  <!-- navigating to them already produces a page view for the destination — -->
+  <!-- tracking the click too would double-count. Event names are prefixed with -->
+  <!-- the site name so they can be told apart from the portfolio's and the -->
+  <!-- Malware Analysis Series' events in the shared GoatCounter account, -->
+  <!-- e.g. "DetectionAndResponse-outbound-view-on-github". -->
+  <script data-goatcounter="https://shaddy43.goatcounter.com/count"
+          async src="//gc.zgo.at/count.js"></script>
 
   <script type="application/ld+json">
   {
@@ -80,7 +91,7 @@
       <div class="header-right">
         <nav class="nav" aria-label="Main">
           <a href="../index.html#posts">Posts</a>
-          <a href="https://github.com/shaddy43/DetectionAndResponse/tree/main/detections" target="_blank" rel="noopener">Detections</a>
+          <a href="https://github.com/shaddy43/DetectionAndResponse/tree/main/detections" target="_blank" rel="noopener" data-event="DetectionAndResponse-outbound-detections-index">Detections</a>
           <a href="https://shaddy43.github.io" target="_blank" rel="noopener">Portfolio</a>
           <a href="https://shaddy43.github.io/MalwareAnalysisSeries/" target="_blank" rel="noopener">Malware Analysis Series</a>
           <a href="https://github.com/shaddy43" target="_blank" rel="noopener">GitHub</a>
@@ -212,8 +223,8 @@ sources:
       WHERE System.EventID.Value IN (1006, 1015, 1116, 1117, 1118, 1119)</code></pre>
       <div class="detection-links">
         <span class="dl-label">Get this artifact</span>
-        <a href="https://github.com/shaddy43/DetectionAndResponse/blob/main/detections/velociraptor/Custom.Windows.EventLogs.DefenderThreats.yaml" target="_blank" rel="noopener">Custom.Windows.EventLogs.DefenderThreats.yaml <span class="ext">↗</span></a>
-        <a href="https://raw.githubusercontent.com/shaddy43/DetectionAndResponse/main/detections/velociraptor/Custom.Windows.EventLogs.DefenderThreats.yaml" target="_blank" rel="noopener">raw <span class="ext">↗</span></a>
+        <a href="https://github.com/shaddy43/DetectionAndResponse/blob/main/detections/velociraptor/Custom.Windows.EventLogs.DefenderThreats.yaml" target="_blank" rel="noopener" data-event="DetectionAndResponse-outbound-detection-defender-artifact">Custom.Windows.EventLogs.DefenderThreats.yaml <span class="ext">↗</span></a>
+        <a href="https://raw.githubusercontent.com/shaddy43/DetectionAndResponse/main/detections/velociraptor/Custom.Windows.EventLogs.DefenderThreats.yaml" target="_blank" rel="noopener" data-event="DetectionAndResponse-outbound-detection-defender-artifact-raw">raw <span class="ext">↗</span></a>
       </div>
       <p>
         This is worth pausing on: the AI <strong>authored working detection logic</strong>, iterating
@@ -491,8 +502,8 @@ sources:
 }</code></pre>
       <div class="detection-links">
         <span class="dl-label">Get this rule</span>
-        <a href="https://github.com/shaddy43/DetectionAndResponse/blob/main/detections/yara/browsersnatch.yar" target="_blank" rel="noopener">browsersnatch.yar <span class="ext">↗</span></a>
-        <a href="https://raw.githubusercontent.com/shaddy43/DetectionAndResponse/main/detections/yara/browsersnatch.yar" target="_blank" rel="noopener">raw <span class="ext">↗</span></a>
+        <a href="https://github.com/shaddy43/DetectionAndResponse/blob/main/detections/yara/browsersnatch.yar" target="_blank" rel="noopener" data-event="DetectionAndResponse-outbound-detection-browsersnatch-yara">browsersnatch.yar <span class="ext">↗</span></a>
+        <a href="https://raw.githubusercontent.com/shaddy43/DetectionAndResponse/main/detections/yara/browsersnatch.yar" target="_blank" rel="noopener" data-event="DetectionAndResponse-outbound-detection-browsersnatch-yara-raw">raw <span class="ext">↗</span></a>
         <a href="https://github.com/shaddy43/DetectionAndResponse/tree/main/detections" target="_blank" rel="noopener">all detections <span class="ext">↗</span></a>
       </div>
 

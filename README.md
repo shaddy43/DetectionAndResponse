@@ -79,6 +79,31 @@ The theme follows the visitor's OS preference by default. The header toggle over
 persists the choice to `localStorage` under `dr-theme`. A small inline script in each page's
 `<head>` applies the saved choice before first paint so there's no flash of the wrong palette.
 
+## Analytics
+
+[GoatCounter](https://www.goatcounter.com/) — privacy-friendly, cookieless, no consent banner
+needed. `count.js` is loaded from each page's `<head>` and counts page views on its own; the click
+handler in `site.js` adds events for **outbound** links only.
+
+Internal links are deliberately not tracked as events: navigating to them already produces a page
+view for the destination, so counting the click too would double-count.
+
+Events report into the same GoatCounter account as the portfolio and the Malware Analysis Series,
+so every name is prefixed `DetectionAndResponse-` to keep the three sites apart.
+
+Two ways a link gets an event name:
+
+1. **Automatic** — any link to another host becomes
+   `DetectionAndResponse-outbound-<slugified link text>`. Nav links, whoami socials and references
+   need no markup.
+2. **Explicit** — add `data-event="DetectionAndResponse-outbound-<name>"` when the link text would
+   slugify badly or ambiguously. The certification badges use this (their text is two spans, e.g.
+   "GREM" + "GIAC / SANS"), as do the detection-file links (several read just "raw", which would
+   otherwise collide).
+
+When adding a post, outbound links work with no action. Add `data-event` only if the post publishes
+download links you want to count individually.
+
 ## Credits
 
 Posts and detection content by [Shayan Ahmed Khan (@shaddy43)](https://github.com/shaddy43).
