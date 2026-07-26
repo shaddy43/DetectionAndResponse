@@ -203,7 +203,7 @@ code, pre, .mono {
 }
 .whoami .body { display: flex; gap: 22px; padding: 24px 26px; align-items: center; }
 .avatar {
-  flex: 0 0 auto; width: 82px; height: 82px; border-radius: 50%;
+  flex: 0 0 auto; width: 128px; height: 128px; border-radius: 50%;
   object-fit: cover; background: var(--bg-code);
   border: 2px solid var(--accent);
   box-shadow: var(--shadow), 0 0 0 4px rgba(13,148,136,0.08);
@@ -363,7 +363,7 @@ code, pre, .mono {
   font-size: 0.78rem; font-weight: 700; box-shadow: var(--shadow);
   transition: transform .15s ease, box-shadow .15s ease;
 }
-a.cert-badge:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); text-decoration: none; }
+.cert-badge:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); text-decoration: none; }
 a.cert-badge:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .cert-key { padding: 6px 11px; color: #fff; letter-spacing: 0.02em; }
 .cert-val { padding: 6px 11px; background: var(--bg-code); color: var(--text); font-weight: 600; }
@@ -447,6 +447,9 @@ a.cert-badge:focus-visible { outline: 2px solid var(--accent); outline-offset: 2
   padding: 6px 12px; border: 1px solid var(--border); border-radius: 8px;
   background: var(--bg-code); color: var(--text);
   transition: border-color .15s ease, color .15s ease;
+  /* Filenames are one long unbreakable token; let them wrap and shrink so the
+     block never pushes past the article on narrow screens. */
+  max-width: 100%; overflow-wrap: anywhere;
 }
 .detection-links a:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
 
