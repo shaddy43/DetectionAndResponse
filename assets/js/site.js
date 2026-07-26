@@ -93,9 +93,96 @@
     });
   }
 
+  /* ---------- Post search + tag filter (index only) ---------- */
+
+  function initPostFilter() {
+    var search = document.getElementById("postSearch");
+    var tagsBox = document.getElementById("filterTags");
+    var noResults = document.getElementById("noResults");
+    if (!search || !tagsBox) return;
+
+    var cards = Array.prototype.slice.call(
+      document.querySelectorAll(".post-card[data-tags]")
+    );
+    // The "coming soon" card isn't a real post — hide it whenever a filter is on.
+    var placeholders = Array.prototype.slice.call(
+      document.querySelectorAll(".post-card[data-placeholder]")
+    );
+    if (!cards.length) return;
+
+    // Index each card's searchable text once, up front.
+    cards.forEach(function (card) {
+      card._tags = (card.dataset.tags || "").split("|").filter(Boolean);
+      card._text = card.textContent.toLowerCase() + " " + card._tags.join(" ");
+    });
+
+    // Tag chips are derived from the cards, so a new post's tags appear here
+    // automatically — nothing to keep in sync by hand.
+    var seen = {};
+    var tags = [];
+    cards.forEach(function (card) {
+      card._tags.forEach(function (t) {
+        if (!seen[t]) { seen[t] = true; tags.push(t); }
+      });
+    });
+    tags.sort();
+
+    var activeTag = "all";
+    var query = "";
+    var buttons = [];
+
+    function label(t) {
+      return t.replace(/\b\w/g, function (c) { return c.toUpperCase(); })
+              .replace(/\b(Mcp|Yara|Dfir)\b/g, function (m) { return m.toUpperCase(); });
+    }
+
+    function apply() {
+      var shown = 0;
+      cards.forEach(function (card) {
+        var tagOk = activeTag === "all" || card._tags.indexOf(activeTag) !== -1;
+        var textOk = query === "" || card._text.indexOf(query) !== -1;
+        var ok = tagOk && textOk;
+        card.style.display = ok ? "" : "none";
+        if (ok) shown++;
+      });
+      var filtering = activeTag !== "all" || query !== "";
+      placeholders.forEach(function (p) { p.style.display = filtering ? "none" : ""; });
+      if (noResults) noResults.hidden = shown > 0;
+      buttons.forEach(function (b) {
+        b.setAttribute("aria-pressed", String(b.dataset.tag === activeTag));
+      });
+    }
+
+    function addButton(value, text) {
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "filter-tag";
+      b.dataset.tag = value;
+      b.textContent = text;
+      b.setAttribute("aria-pressed", String(value === activeTag));
+      b.addEventListener("click", function () {
+        activeTag = activeTag === value ? "all" : value;
+        apply();
+      });
+      tagsBox.appendChild(b);
+      buttons.push(b);
+    }
+
+    addButton("all", "All");
+    tags.forEach(function (t) { addButton(t, label(t)); });
+
+    search.addEventListener("input", function () {
+      query = search.value.trim().toLowerCase();
+      apply();
+    });
+
+    apply();
+  }
+
   function init() {
     initTheme();
     initCopyButtons();
+    initPostFilter();
   }
 
   if (document.readyState === "loading") {
