@@ -179,10 +179,72 @@
     apply();
   }
 
+  /* ---------- GoatCounter outbound-link events ---------- */
+  /* Mirrors the handler in the portfolio and Malware Analysis Series, so all
+     three sites report comparable events into the same GoatCounter account.
+     count.js (loaded in the page head) already counts page views; this only
+     adds click events for links that leave the site. Internal links are left
+     alone — navigating to them produces a page view for the destination, and
+     counting the click as well would double-count. */
+
+  var GOATCOUNTER_URL = "https://shaddy43.goatcounter.com/count";
+  var SITE = "DetectionAndResponse";
+
+  function slugify(text) {
+    return text.toLowerCase().trim()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "");
+  }
+
+  function trackEvent(name, title) {
+    if (window.goatcounter && window.goatcounter.count) {
+      window.goatcounter.count({ path: name, title: title, event: true });
+    } else {
+      // count.js not loaded yet (still downloading, or blocked): hit the
+      // pixel endpoint directly so the click is not lost.
+      (new Image()).src = GOATCOUNTER_URL +
+        "?p=" + encodeURIComponent(name) +
+        "&t=" + encodeURIComponent(title) +
+        "&e=true";
+    }
+  }
+
+  function initOutboundTracking() {
+    function handleClick(e) {
+      // auxclick covers middle-click (open in new tab); ignore right-click
+      if (e.type === "auxclick" && e.button !== 1) return;
+
+      var target = e.target;
+      if (!target || typeof target.closest !== "function") return;
+      var link = target.closest("a[href]");
+      if (!link) return;
+
+      // Prefer an explicit, stable event name where the markup provides one
+      // (certification badges and detection-file links use data-event, because
+      // their link text would otherwise slugify into something unreadable or
+      // ambiguous — several links read just "raw").
+      if (link.dataset.event) {
+        trackEvent(link.dataset.event, link.href);
+        return;
+      }
+
+      // Otherwise track links to a different host: nav links out to the
+      // portfolio and Malware Analysis Series, whoami socials, references.
+      if (link.host && link.host !== location.host) {
+        var label = (link.textContent || "").trim() || link.href;
+        trackEvent(SITE + "-outbound-" + slugify(label), link.href);
+      }
+    }
+
+    document.addEventListener("click", handleClick);
+    document.addEventListener("auxclick", handleClick);
+  }
+
   function init() {
     initTheme();
     initCopyButtons();
     initPostFilter();
+    initOutboundTracking();
   }
 
   if (document.readyState === "loading") {
